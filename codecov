@@ -1078,7 +1078,7 @@ query="branch=$branch\
        &tag=$([ "$tag_o" = "" ] && echo "$tag" || echo "$tag_o")\
        &slug=$urlencoded_slug\
        &service=$service\
-       &flags=$flags\
+       &flags=$(urlencode "$flags")\
        &pr=$([ "$pr_o" = "" ] && echo "${pr##\#}" || echo "${pr_o##\#}")\
        &job=$job\
        &cmd_args=$(IFS=,; echo "${codecov_flags[*]}")"
